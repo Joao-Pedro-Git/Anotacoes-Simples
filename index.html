@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Anotações</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin: 20px 0;
+        }
+        .btn-add {
+            cursor: pointer;
+            position: fixed;
+            bottom: 30px; /* Margem inferior para melhor visualização */
+            right: 30px; /* Margem direita para melhor visualização */
+            width: 70px;
+            height: 70px;
+            background-color: #45a049;
+            border-radius: 50%;
+            font-size: 35px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 70px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 10; /* Garantir que o botão fique acima de outros elementos */
+        }
+        .btn-add:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.1);
+        }
+        .container-anotacoes {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .anotacao-single {
+            width: 30%;
+            margin: 15px;
+            background-color: #ffe499;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .anotacao-single:hover {
+            transform: translateY(-5px);
+        }
+        .anotacao-single textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            background-color: transparent;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            resize: none;
+            outline: none;
+        }
+        .timestamp {
+            font-size: 12px;
+            color: #555;
+            text-align: right;
+            margin: 5px 10px;
+        }
+        @media screen and (max-width: 768px) {
+            .anotacao-single {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Anotações</h1>
+    <div class="container-anotacoes"></div>
+
+    <div class="btn-add"><b>+</b></div>
+
+    <script>
+        AOS.init(); 
+
+        $(function () {
+            $(".btn-add").click(() => {
+                let date = new Date();
+                let options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+                let timestamp = date.toLocaleString('pt-BR', options);
+
+                let el = `
+                    <div class="anotacao-single" data-aos="fade-up" data-aos-duration="600">
+                        <textarea placeholder="Sua nova anotação..."></textarea>
+                        <div class="timestamp">Anotado em: ${timestamp}</div>
+                    </div>`;
+                $(".container-anotacoes").append(el);
+            });
+        });
+    </script>
+</body>
+</html>
