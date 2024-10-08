@@ -19,9 +19,6 @@ Animações Suaves: Utiliza a biblioteca AOS (Animate On Scroll) para criar anim
 ## 🚀 Como Usar
 Para começar, siga estas etapas:
 
-Clone este repositório:
-
-
 ## Instalação
 1. Clone o repositório:
    ```bash
