@@ -1,4 +1,7 @@
 ## Anotações e Projetos de Desenvolvimento
+
+![Imagem do Projeto](https://github.com/user-attachments/assets/b9f35718-cecb-448d-9126-8d55627e5ac2)
+
 Bem-vindo ao meu repositório! Aqui, você encontrará uma coleção de projetos e anotações que documentam meu aprendizado em Full Stack Web Development.
 
 ## 📚 O que você encontrará aqui?
